@@ -11,11 +11,12 @@ function Invoke-CwmApiCall {
 
     $VerbosePrefix = "Invoke-CwmApiCall:"
     
-    $ContentType       = "application/json"
+    $ContentType = "application/json"
 
     $Headers = @{}
     $Headers.Authorization = "Basic $AuthString"
 
+    Write-Verbose "$VerbosePrefix Requesting Uri: $Uri"
     $JsonResponse = Invoke-RestMethod -URI $Uri -Headers $Headers -ContentType $ContentType -Method Get
 
     if ($JsonResponse) {
